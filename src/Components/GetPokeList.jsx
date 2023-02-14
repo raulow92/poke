@@ -1,4 +1,4 @@
-const GetPokeList = () => {
+const GetPokeList = async() => {
     let pokeList = []
 
     const getPokes = async (id) => {
@@ -8,14 +8,15 @@ const GetPokeList = () => {
         pokeList.push(data)
     };
 
-    const getNum = (num) => {
+    const getNum = async (num) => {
         for (let i = 1; i <= num; i++) {
-            getPokes(i);
+            await getPokes(i);
         }
     };
 
-    getNum(10)
+    await getNum(10)
     console.log(pokeList)
+    console.log(pokeList[1])
 };
 
 export default GetPokeList;
